@@ -15,7 +15,7 @@ namespace Abunemer_Project_2
 
         private List<User> Users { get; set; }
         public User? ActiveUser { get; private set; }
-        public Wallet? ActiveWallet { get; private set; } // Active wallet for the user
+        public Wallet? ActiveWallet { get; private set; } 
 
         private Storage()
         {

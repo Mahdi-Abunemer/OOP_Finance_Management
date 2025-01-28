@@ -52,7 +52,7 @@ namespace Abunemer_Project_2.Models
         }
         public void AddIncome(Income income)
         {
-           // balance.CurrencyType = income.CurrencyType; 
+           
             if (income == null)
             {
                 throw new ArgumentException("Income cannot be null.");

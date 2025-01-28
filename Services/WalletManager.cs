@@ -32,10 +32,10 @@ namespace Abunemer_Project_2.Services
             }
 
             var wallet = new Wallet(startAmount, name, CurrencyWallet);
-            _storage.ActiveUser.AddWallet(wallet); // Add wallet to the active user
+            _storage.ActiveUser.AddWallet(wallet); 
         }
 
-        public void DeleteWallet(string name)  //(Wallet wallet)
+        public void DeleteWallet(string name)  
         {
             if (_storage.ActiveUser == null)
             {
@@ -128,7 +128,7 @@ namespace Abunemer_Project_2.Services
                     throw new ArgumentException("Invalid expense category.");
                 }
 
-                // Assign expense category
+                // Assign expense category and value 
                 Expense_Type category = (Expense_Type)categoryNumber;
                 expense.Category = category; 
                 expense.Value = value;
@@ -141,7 +141,7 @@ namespace Abunemer_Project_2.Services
                 {
                     throw new ArgumentException("Invalid income category.");
                 }
-                // Assign income category
+                // Assign income category and value 
                 Income_Type category = (Income_Type)categoryNumber;
                  income.Category = category; 
                 income.Value = value;

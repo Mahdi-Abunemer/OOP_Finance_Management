@@ -89,8 +89,6 @@ namespace Abunemer_Project_2.Models
             Sign = match.Groups["sign"].Value[0];
 
             Intpart = uint.Parse(match.Groups["intpart"].Value);
-
-            // Extract and assign fractional part, ensuring it has 2 digits
             string fractionalString = match.Groups["frcpart"].Value;
             Frcpart = byte.Parse(fractionalString.PadRight(2, '0'));
 
@@ -237,8 +235,6 @@ namespace Abunemer_Project_2.Models
                 // If this object is positive and other is negative, this is greater.
                 return Sign == '+' ? 1 : -1;
             }
-
-            // Both have the same sign; now compare Intpart
             int intPartComparison = Intpart.CompareTo(other.Intpart);
             if (intPartComparison != 0)
             {
@@ -250,7 +246,6 @@ namespace Abunemer_Project_2.Models
                 return Sign == '+' ? frcPartComparison : -frcPartComparison;
             }
 
-            //  compare currencies if everything else is the same
             return currency.CompareTo(other.currency);
         }
         //overload      

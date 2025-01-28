@@ -15,7 +15,7 @@ IBusinessLogicServic service = new BusinessLogicServic();
 while (true)
 {
     Console.ForegroundColor = ConsoleColor.White;
-    var activeUser = storage.GetActiveUser();  // Get the active user from the storage
+    var activeUser = storage.GetActiveUser();  
     Console.Clear();
     Console.WriteLine("Main menu options:");
 
@@ -93,7 +93,7 @@ while (true)
             case 5:
                 if (activeUser != null)
                 {
-                    storage.LogOut();  // Ensure active user is logged out and set to null
+                    storage.LogOut();  
                     Console.WriteLine("You have been logged out.");
                 }
                 else
@@ -182,8 +182,8 @@ static void CreateWallet(WalletManager walletManager)
     }
     try
     {
-       // var startAmount = new Money(amount); 
-        walletManager.CreateWallet(name, startAmount, cur);  // Link wallet to active user
+       
+        walletManager.CreateWallet(name, startAmount, cur);  
         Console.WriteLine("Wallet created successfully!");
     }
     catch (Exception ex)
@@ -206,7 +206,7 @@ static void ChooseWallet(WalletManager wm)
     Console.WriteLine("Type wallet name: ");
     var name = Console.ReadLine();
     wm.ChooseWallet(name);
-    //Console.WriteLine($"Wallet {name} is now the active wallet!");
+    
 }
 
 static void ShowWallets(WalletManager walletManager)
@@ -223,7 +223,7 @@ static void ShowWallets(WalletManager walletManager)
         Console.WriteLine("Your wallets:");
         foreach (var wallet in wallets)
         {
-            // Display wallet balance and currency correctly
+            
             Console.WriteLine($"=> {wallet.Name} {wallet.balance.Display()}");
         }
     }
@@ -247,7 +247,7 @@ static void TestOperations(WalletManager walletManager, Storage storage)
     walletManager.ChooseWallet(walletName);  // Set the selected wallet as the active wallet
 
     var activeWallet = storage.GetActiveWallet();
-    //i did not write this condition in the sequences diagram 
+    
     if (activeWallet == null)
     {
         Console.WriteLine("Invalid wallet name.");
@@ -277,7 +277,7 @@ static void TestOperations(WalletManager walletManager, Storage storage)
                     Console.WriteLine("Invalid date format.");
                 }
                 walletManager.AddOperation(new Income(), new Money(value),
-                    Convert.ToInt32(categoryIncome), Convert.ToDateTime(dateIncome));  // Link operation to selected wallet
+                    Convert.ToInt32(categoryIncome), Convert.ToDateTime(dateIncome));  
                 break;
 
             case 2:
@@ -294,7 +294,7 @@ static void TestOperations(WalletManager walletManager, Storage storage)
                 }
                
                 walletManager.AddOperation(new Expense(), new Money(expenseValue),
-                    Convert.ToInt32(categoryExpense), Convert.ToDateTime(dateExpense));  // Link operation to selected wallet
+                    Convert.ToInt32(categoryExpense), Convert.ToDateTime(dateExpense));  
                 break;
 
             case 0:
